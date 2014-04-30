@@ -57,4 +57,11 @@ public class Cotxe extends Element {
 		if (direccio > OEST)
 			direccio = NORD;
 	}
+	
+	public int getX (){
+		return x;
+	}
+	public int getY (){
+		return y;
+	}
 }
