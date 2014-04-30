@@ -19,25 +19,25 @@ String pathSD;
  
 public MotorFileIO(AssetManager recursos)
 {
-//Inicialitzem
-this.recursos = recursos;
-this.pathSD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
+	//Inicialitzem
+	this.recursos = recursos;
+	this.pathSD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
 }
  
 @Override
 public InputStream llegirRecurs(String nomFitxer) throws IOException
 {
-return recursos.open(nomFitxer);
+	return recursos.open(nomFitxer);
 }
  
 @Override
 public InputStream llegirFitxer(String nomFitxer) throws IOException
 {
-return new FileInputStream(pathSD + nomFitxer);
+	return new FileInputStream(pathSD + nomFitxer);
 }
  
 @Override
 public OutputStream escriureFitxer(String nomFitxer) throws IOException{
-return new FileOutputStream(pathSD + nomFitxer);
+	return new FileOutputStream(pathSD + nomFitxer);
 }
 }
