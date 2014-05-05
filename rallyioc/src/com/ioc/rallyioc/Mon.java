@@ -14,6 +14,7 @@ public class Mon {
 	static final int COTXE_INIT_Y = 7;
 
 	public Cotxe cotxe;
+	public Vago vagons [];
 	public boolean gameOver = false;
 	public int puntuaci� = 0;
 
@@ -30,10 +31,16 @@ public class Mon {
 
 		// Creem el cotxe
 		cotxe = new Cotxe(COTXE_INIT_X, COTXE_INIT_Y);
+//		for (int i=0;i<cotxe.llista.size();i++){
+//			vagons[i]=new Vago(COTXE_INIT_X, COTXE_INIT_Y+1);
+//		}
+		
 
 		// Introduïm el cotxe al mapa per assegurar-nos que no es crea
 		// la gasolina o l'obstacle nou en la posició del cotxe
 		mapa[COTXE_INIT_X][COTXE_INIT_Y] = cotxe;
+		//mapa[COTXE_INIT_X][COTXE_INIT_Y+1] = vagons;
+
 
 		// Situem una primera gasolina
 		situaElement(Element.ELEMENT_GASOLINA);
@@ -75,6 +82,8 @@ public class Mon {
 	public void actualitza(float increment) {
 		int cotxeAnticX;
 		int cotxeAnticY;
+		int direccio ;
+		
 
 		// Si s'ha acabat el joc no hi ha res a actualitzar!
 		if (gameOver)
@@ -88,9 +97,14 @@ public class Mon {
 			// Guardem on és el cotxeabans d'avançar
 			cotxeAnticX = cotxe.x;
 			cotxeAnticY = cotxe.y;
+			direccio = cotxe.direccio;
+			
 
 			// Avancem el cotxe
 			cotxe.avanca();
+			//vagons.avanca(cotxeAnticX,cotxeAnticY,direccio);
+			//mapa[cotxeAnticX][cotxeAnticY] = vago;
+			//vago.avanca();
 
 			// Comprovem si ha xocat amb algun element
 			if (mapa[cotxe.x][cotxe.y] != null) {
@@ -98,6 +112,7 @@ public class Mon {
 				switch (mapa[cotxe.x][cotxe.y].tipus) {
 				case Element.ELEMENT_GASOLINA:
 					puntuaci� += INCREMENT_PUNTUACIO;
+					cotxe.addVago();
 
 					// Eliminem aquesta gasolina
 					mapa[cotxe.x][cotxe.y] = null;
@@ -117,9 +132,12 @@ public class Mon {
 			} else {
 				// El lloc que ocupava el cotxe ara està buit
 				mapa[cotxeAnticX][cotxeAnticY] = null;
+				
 
 				// i actualitzem la seva posició actual
 				mapa[cotxe.x][cotxe.y] = cotxe;
+				
+				
 			}
 		}
 	}

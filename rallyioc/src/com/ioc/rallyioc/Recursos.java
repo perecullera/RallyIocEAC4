@@ -22,6 +22,10 @@ public static Pixmap cotxeAdalt;
 public static Pixmap cotxeEsquerra;
 public static Pixmap cotxeAbaix;
 public static Pixmap cotxeDreta;
+public static Pixmap vagoAdalt;
+public static Pixmap vagoEsquerra;
+public static Pixmap vagoAbaix;
+public static Pixmap vagoDreta;
 public static Pixmap obstacle;
 public static Pixmap gasolina;
  

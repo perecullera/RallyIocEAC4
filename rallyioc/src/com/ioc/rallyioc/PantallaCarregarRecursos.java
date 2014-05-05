@@ -41,6 +41,14 @@ public class PantallaCarregarRecursos extends Pantalla {
 				PixmapFormat.ARGB4444);
 		Recursos.cotxeDreta = g.nouPixmap("grafics/trendreta.png",
 				PixmapFormat.ARGB4444);
+		Recursos.vagoAdalt = g.nouPixmap("grafics/vagodalt.png",
+				PixmapFormat.ARGB4444);
+		Recursos.vagoEsquerra = g.nouPixmap("grafics/vagoesquerra.png",
+				PixmapFormat.ARGB4444);
+		Recursos.vagoAbaix = g.nouPixmap("grafics/vagobaix.png",
+				PixmapFormat.ARGB4444);
+		Recursos.vagoDreta = g.nouPixmap("grafics/vagodreta.png",
+				PixmapFormat.ARGB4444);
 		Recursos.obstacle = g.nouPixmap("grafics/obstacle.png",
 				PixmapFormat.ARGB4444);
 		Recursos.gasolina = g.nouPixmap("grafics/gasolina.png",
