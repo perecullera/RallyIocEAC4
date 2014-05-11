@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.graphics.Color;
 
+import com.ioc.motor.FileIO;
 import com.ioc.motor.Grafics;
 import com.ioc.motor.Input.EventTouch;
 import com.ioc.motor.Joc;
@@ -217,7 +218,11 @@ public class PantallaJoc extends Pantalla {
 
 	private void actualitzaGameOver(List<EventTouch> touchEvents) {
 		int mida = touchEvents.size();
-
+		// tema puntuacio, mirar si millor fer un mètode a part
+		int punts = Integer.parseInt(puntuacio);
+		Configuracio.afegirMarcador(punts);
+		FileIO io = joc.getFileIO();
+		Configuracio.desaConfiguracio(io);
 		for (int i = 0; i < mida; i++) {
 			EventTouch event = touchEvents.get(i);
 			if (event.tipus == EventTouch.AIXECAT) {
