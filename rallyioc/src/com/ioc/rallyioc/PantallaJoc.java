@@ -62,6 +62,7 @@ public class PantallaJoc extends Pantalla {
 	private void dibuixaMon(Mon mon) {
 		Grafics g = joc.getGraphics();
 		Cotxe cotxe = mon.cotxe;
+		
 
 		// Recorreguem tot el món i dibuixem el que ens trobem
 		for (int x = 0; x < Mon.MON_AMPLE; x++) {
@@ -99,6 +100,30 @@ public class PantallaJoc extends Pantalla {
 			break;
 		}
 		g.dibuixaPixmap(cotxePixmap, cotxe.x * 32, cotxe.y * 32);
+		
+		// Vago
+		for (int i=0;i<cotxe.llista.size();i++){
+			Vago vago = cotxe.llista.get(i);
+			
+			Pixmap vagoPixmap = null;
+
+			switch (vago.direccio) {
+				case Cotxe.NORD:
+					vagoPixmap = Recursos.vagoAdalt;
+					break;
+				case Cotxe.SUD:
+					vagoPixmap = Recursos.vagoAbaix;
+					break;
+				case Cotxe.EST:
+					vagoPixmap = Recursos.vagoDreta;
+					break;
+				case Cotxe.OEST:
+					vagoPixmap = Recursos.vagoEsquerra;
+					break;
+				}
+			g.dibuixaPixmap(vagoPixmap, vago.x * 32, vago.y * 32);
+		}
+		
 	}
 
 	private void dibuixaPreparat() {
@@ -225,10 +250,12 @@ public class PantallaJoc extends Pantalla {
 				// Fletxa esquerra
 				if (event.x < 64 && event.y > 416) {
 					mon.cotxe.giraEsquerra();
+					
 				}
 				// Fletxadreta
 				if (event.x > 256 && event.y > 416) {
 					mon.cotxe.giraDreta();
+					
 				}
 			}
 		}
